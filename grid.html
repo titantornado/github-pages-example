@@ -1,60 +1,96 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Grid Practice</title>
-  </head>
-  <body style="padding-bottom: 1000px;">
-    <div style="
-      display: grid;
-      grid-template-columns: 100px 100px;
-    ">
-      <div style="background-color: lightblue;">div 1</div>
-      <div style="background-color: lightpink;">div 2<p>text</p></div>
-    </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Announcements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+        }
+        nav {
+            padding: 15px;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: bold;
+        }
+        main {
+            padding: 20px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            display: block;
+            margin: 20px auto;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
 
-    <div style="
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: 100px 100px 200px;
-    ">
-      <div style="background-color: lightblue;">100px</div>
-      <div style="background-color: lightpink;">100px<p>text</p></div>
-      <div style="background-color: lightblue;">200px</div>
-      <div style="background-color: lightpink;">100px</div>
-    </div>
+    <!-- Header Section with School Name -->
+    <header>
+        <h1>Welcome to Curro Parkdene</h1>
+        <p>Your source for the latest news and announcements</p>
+    </header>
 
-    <div style="
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: 100px 1fr;
-    ">
-      <div style="background-color: lightblue;">100px</div>
-      <div style="background-color: lightpink;">1fr</div>
-    </div>
+    <!-- Navigation Links -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="daily-news.html">Daily News</a>
+    </nav>
 
-    <div style="
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: 100px 1fr 2fr;
-    ">
-      <div style="background-color: lightblue;">100px</div>
-      <div style="background-color: lightpink;">1fr</div>
-      <div style="background-color: lightblue;">2fr</div>
-    </div>
+    <!-- Main Content -->
+    <main>
+        <img src="school-picture.jpg" alt="Picture of the School">
+        <h2>Announcements</h2>
+        <p><strong>Note:</strong> Check here for weekly announcements.</p>
 
-    <div style="
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      column-gap: 20px;
-      row-gap: 40px;
-    ">
-      <div style="background-color: lightblue; height: 200px;">1fr</div>
-      <div style="background-color: lightpink; height: 200px;">1fr</div>
-      <div style="background-color: lightblue; height: 200px;">1fr</div>
-      <div style="background-color: lightpink; height: 200px;">1fr</div>
-      <div style="background-color: lightblue; height: 200px;">1fr</div>
-      <div style="background-color: lightpink; height: 200px;">1fr</div>
-    </div>
-  </body>
+        <!-- Ordered List -->
+        <h3>Upcoming Events</h3>
+        <ol>
+            <li>School Sports Day - October 15</li>
+            <li>Parent-Teacher meeting - October 20</li>
+            <li>Science Fair - October 25</li>
+        </ol>
+
+        <!-- Unordered List -->
+        <h3>Key Reminders</h3>
+        <ul>
+            <li>Bring a water bottle every day.</li>
+            <li>School gates open at 7:30 AM.</li>
+            <li>Uniforms are mandatory.</li>
+        </ul>
+    </main>
+
+    <!-- Footer Section with Contact Information -->
+    <footer>
+        <p>Contact us at <em>school@example.com</em></p>
+    </footer>
+
+</body>
 </html>
