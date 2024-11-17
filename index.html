@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire a Friend</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6d83f2, #c47ef9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 400px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #ff9a8b, #ff6a88, #ff99ac);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            clip-path: ellipse(80% 70% at center);
+        }
+
+        .avatar svg {
+            width: 150px;
+            height: 150px;
+        }
+
+        .info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .info h2 {
+            font-size: 1.8em;
+            margin: 0 0 10px;
+            color: #333;
+        }
+
+        .info p {
+            font-size: 1em;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            background: #f8f9fb;
+        }
+
+        .actions button {
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .hire-btn {
+            background: #28a745;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(40, 167, 69, 0.3);
+        }
+
+        .hire-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(40, 167, 69, 0.4);
+        }
+
+        .next-btn {
+            background: #007bff;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+        }
+
+        .next-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 123, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="avatar" id="avatar-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <circle cx="256" cy="128" r="96" fill="#ffcccb" />
+                <path d="M256 288c-70.7 0-128 57.3-128 128v32h256v-32c0-70.7-57.3-128-128-128z" fill="#ffb6c1" />
+                <circle cx="210" cy="110" r="10" fill="#333" />
+                <circle cx="302" cy="110" r="10" fill="#333" />
+                <path d="M224 160c16 12 48 12 64 0" stroke="#333" stroke-width="5" fill="none" />
+            </svg>
+        </div>
+        <div class="info" id="info-container">
+            <h2>Alex, 24</h2>
+            <p>🎮 Gamer | 🍕 Foodie | 🎨 Art Enthusiast</p>
+            <p>Available for: 3 days</p>
+        </div>
+        <div class="actions">
+            <button class="hire-btn" onclick="hireFriend()">Hire Friend</button>
+            <button class="next-btn" onclick="nextProfile()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const profiles = [
+            { name: "Lethabo", age: 21, bio: "🌱 Plant Lover | 🎨 Artist | 🏃‍♂️ Marathon Runner", days: 5 },
+            { name: "Zwelethu", age: 22, bio: "🏀 Basketball Fanatic | 🎶 Music Addict", days: 7 },
+            { name: "Oreratile", age: 24, bio: "🍳 Aspiring Chef | 🎮 Pro Gamer", days: 4 },
+            { name: "Mwande", age: 23, bio: "✈️ Travel Enthusiast | 📷 Photographer", days: 3 },
+            { name: "Timu", age: 25, bio: "🚀 Space Explorer | 🎸 Guitarist", days: 2 },
+            { name: "Qhayi", age: 26, bio: "🎤 Karaoke Star | 📚 History Buff", days: 6 },
+            { name: "Vunene", age: 24, bio: "🐶 Animal Lover | 🧘 Yoga Master", days: 5 },
+            { name: "Thabo", age: 23, bio: "⚽ Football Pro | 🎲 Board Game Enthusiast", days: 8 },
+            { name: "Thembi", age: 22, bio: "🎨 Painter | 🌍 Environmentalist", days: 7 },
+            { name: "Siya", age: 24, bio: "🚴 Cyclist | 🎭 Theatre Lover", days: 4 },
+            { name: "Alungile", age: 25, bio: "🎹 Pianist | 📖 Book Club Host", days: 6 },
+            { name: "Jelly", age: 22, bio: "🌊 Surfer | 🧑‍🍳 Pastry Chef", days: 3 },
+            { name: "Bongi", age: 24, bio: "🌟 Stargazer | 🚗 Car Enthusiast", days: 2 },
+            { name: "Khosi", age: 26, bio: "🏖️ Beach Bum | 🎶 Festival Goer", days: 5 },
+            { name: "Mandla", age: 23, bio: "🏋️ Gym Lover | 🎥 Film Buff", days: 6 },
+            { name: "Nonhlanhla", age: 21, bio: "📷 Selfie King/Queen | ✈️ Travel Planner", days: 5 },
+            { name: "Sipho", age: 24, bio: "🍲 Food Reviewer | 🖌️ Calligraphy Expert", days: 3 },
+            { name: "Dineo", age: 22, bio: "🎤 Podcast Host | 🚶 Explorer", days: 4 },
+            { name: "Kagiso", age: 25, bio: "🖥️ Tech Guru | 🎮 RPG Master", days: 7 },
+            { name: "Lesedi", age: 24, bio: "📖 Novelist | 🖌️ Illustrator", days: 6 },
+            { name: "Thuli", age: 23, bio: "🧗 Rock Climber | 📸 Amateur Photographer", days: 5 },
+            { name: "Karabo", age: 26, bio: "💃 Dancer | 🎬 Movie Critic", days: 8 },
+            { name: "Mpho", age: 22, bio: "🛠️ DIY Enthusiast | 🎨 Designer", days: 4 },
+            { name: "Zandile", age: 24, bio: "🎤Singer| 🖋️ Poet", days: 3 },
+            { name: "Ntombi", age: 25, bio: "🐾 Pet Sitter | 🎮 Esports Analyst", days: 5 }
+        ];
+
+        let currentProfileIndex = 0;
+
+        function updateProfile() {
+            const profile = profiles[currentProfileIndex];
+            document.getElementById("info-container").innerHTML = `
+                <h2>${profile.name}, ${profile.age}</h2>
+                <p>${profile.bio}</p>
+                <p>Available for: ${profile.days} days</p>
+            `;
+        }
+
+        function nextProfile() {
+            currentProfileIndex = (currentProfileIndex + 1) % profiles.length;
+            updateProfile();
+        }
+
+        function hireFriend() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        alert(`Your location: ${position.coords.latitude}, ${position.coords.longitude}`);
+                    },
+                    error => {
+                        alert("Location access denied.");
+                    }
+                );
+            } else {
+                alert("Geolocation is not supported by your browser.");
+            }
+        }
+
+        // Initialize with the first profile
+        updateProfile();
+    </script>
+</body>
+</html>
